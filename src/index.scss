@@ -1,0 +1,17 @@
+@import "./config";
+@import "./mixins";
+@import "./text";
+@import "./components/containers";
+@import "./components/nav";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: $lato;
+}
+
+body {
+  color: $secondary-gray;
+  background: $main-black;
+}
