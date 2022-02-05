@@ -1,0 +1,22 @@
+.container {
+  max-width:2000px;
+  margin: 0 auto;
+  position: relative;
+  height: 100%;
+  &__flex__row{
+    max-width:2000px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  &__flex__column{
+    max-width:2000px;
+    margin: 0 auto;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}

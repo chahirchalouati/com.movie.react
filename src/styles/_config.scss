@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+//colors
+$red: #D63837;
+$main-gray: #989898;
+$secondary-gray: #999999;
+$yellow: #D3C226;
+$main-black: #303030;
+$secondary-black: #363636;
+$main-white: #FFFF;
+$secondary-white: #FFFE;
+
+//fonts
+$openSans: 'Open Sans', sans-serif;
+
+$dimensions: ('5' :5%, '10' :10%, '15' :15%, '20' :20%,'30' :30%, '40' :40%, '50' :50%,'60':60%, '80':80%,'90':90%, 'full':100%);
+$sizes: (xs :10px, 'sm' :12px, 'md' :14px, 'lg' :16px, 'xl' :18px, '2xl':20px, '3xl':22px, '4xl':24px, '5xl':28px, '6xl':32px, '7xl':34px, 'auto' :auto);
+$propsSizes: (xs :0.1rem, 'sm' :0.2rem, 'md' :0.3rem, 'lg' :0.4rem, 'xl' :0.6rem, '2xl':0.8rem, '3xl':1rem, '4xl':1.5rem, '5xl':2rem, '6xl':3rem, '7xl':4rem, 'auto' :auto);
+$borderRadius: (xs :10px, 'sm' :12px, 'md' :14px, 'lg' :16px, 'xl' :18px, '2xl':20px, '3xl':22px, '4xl':24px, '5xl':28px, '6xl':32px, '7xl':34px, 'full' : 50%);
+
+$transformProps: capitalize, lowercase, uppercase;
+$directions: '', top, left, right, bottom;
+$bolds: bold, bolder, normal, lighter;
+$props: margin, padding ;
+$minMax: min, max ;
+$dimensionProps: width, height;
+
+
+@each $key, $size in $sizes {
+  .text-#{$key} {
+    font-size: $size;
+  }
+}
+
+@each $key, $size in $sizes {
+  .gap-#{$key} {
+    gap: $size;
+  }
+}
+@each $key, $size in $sizes {
+  .line-height-#{$key} {
+    line-height: $size;
+  }
+}
+
+@each $key, $size in $borderRadius {
+  .border-radius-#{$key} {
+    border-radius: $size;
+  }
+}
+
+@each $key, $size in $propsSizes {
+  @each $direction in $directions {
+    @each $prop in $props {
+      @if ($direction == '') {
+        .#{$prop}-#{$key} {
+          #{$prop}: $size !important;
+        }
+      } @else {
+        .#{$prop}-#{$direction}-#{$key} {
+          #{$prop}-#{$direction}: $size !important;
+        }
+      }
+
+    }
+  }
+  @each $dimension in $dimensionProps {
+    .#{$dimension}-#{$key} {
+      #{$dimension}: calc(#{$size} * 10) !important;
+    }
+  }
+}
+
+
+@each $prop in $transformProps {
+  .text-#{$prop} {
+    text-transform: $prop;
+  }
+}
+
+
+@each $bold in $bolds {
+  .bold-#{$bold} {
+    font-weight: $bold;
+  }
+}
+@each $prop  in $dimensionProps {
+  @each $key, $size in $dimensions {
+    .#{$prop}-#{$key} {
+      #{$prop}: $size !important;
+    }
+  }
+}
+@each $mm  in $minMax {
+  @each $prop  in $dimensionProps {
+    @each $key, $size in $dimensions {
+      .#{$mm}-#{$prop}-#{$key} {
+        #{$mm}-#{$prop}: $size !important;
+      }
+    }
+  }
+}

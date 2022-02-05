@@ -1,0 +1,131 @@
+.nav-bar {
+
+
+  @include flex(row);
+  background: $main-black;
+  height: 4rem;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+
+  &__input-box {
+    @include flex(row) {
+      align-items: center;
+      width: max-content;
+      background: $secondary-black;
+    }
+
+    &__icon-input {
+      fill: $secondary-gray;
+    }
+
+    &__input {
+      outline: none;
+      border: none;
+      background: $secondary-black;
+      color: $main-white;
+    }
+  }
+
+  &__settings_box {
+    margin-left: auto;
+    @include flex(row, 1rem);
+    background: $main-black;
+    height: 4rem;
+    width: max-content;
+    align-items: center;
+
+  }
+}
+
+.side-bar {
+  @include flex(column);
+  background: $secondary-black;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 20rem;
+  overflow: auto;
+
+  &__header {
+    @include flex(row);
+    background: transparent;
+    width: 100%;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      background: $main-black;
+      border-bottom-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+  }
+
+  &__avatar_box {
+    width: 100%;
+    @include flex(row) {
+    }
+
+    &_img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      border: 2px solid $red;
+    }
+  }
+
+  &__box {
+    width: 100%;
+    height: max-content;
+    @include flex(column);
+
+    &__header {
+      width: 100%;
+      border-bottom: 1px solid $main-black;
+
+    }
+
+    &__menu-list {
+      @include flex(column);
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+
+      &__item {
+        @include flex(row);
+        align-items: center;
+        transition: 0.5s all ease-out;
+        width: 100%;
+        cursor: pointer;
+        letter-spacing: 1px;
+
+        &:hover {
+          background: $main-black;
+          border-bottom-left-radius: 25px;
+          border-top-left-radius: 25px;
+          transition: 0.2s ease-out;
+
+          .text-md {
+            transition: 0.2s ease-out;
+            margin-left: 5px;
+          }
+
+          & > * {
+            color: $red;
+            fill: $red;
+          }
+        }
+
+      }
+    }
+  }
+
+  &__footer {
+    width: 100%;
+
+    @include flex(column);
+  }
+}

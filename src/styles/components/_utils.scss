@@ -1,0 +1,31 @@
+.icon {
+  cursor: pointer;
+  min-height: 2.5rem;
+  min-width: 2.5rem;
+  padding: 0.5rem;
+  transition: all 0.1s ease-out;
+  @include flex(row) {
+    justify-content: center;
+    align-items: center;
+    .counter {
+      @include flex(row) {
+        justify-content: center;
+        align-items: center;
+      }
+      font-size: 8px;
+      background: $red;
+      color: $main-white;
+      border-radius: 50%;
+      height: 15px;
+      width: 15px;
+      padding: 3px;
+      margin-right: -10px;
+      margin-top: -18px;
+      z-index: 1;
+    }
+  }
+ &:hover{
+   background: $secondary-black;
+   border-radius: 50%;
+ }
+}
