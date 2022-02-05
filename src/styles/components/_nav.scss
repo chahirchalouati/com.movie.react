@@ -1,12 +1,11 @@
 .nav-bar {
-
-
   @include flex(row);
   background: $main-black;
   height: 4rem;
   width: 100%;
   align-items: center;
   justify-content: space-between;
+  position: sticky !important;
 
   &__input-box {
     @include flex(row) {

@@ -1,0 +1,21 @@
+.movie-list {
+  @include flex(row) {
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  & .movie-card {
+    padding: 1em;
+    background: none;
+
+    &__thumbnails {
+      img {
+        max-width: 300px;
+        object-position: center;
+        object-fit: cover;
+
+      }
+    }
+  }
+}

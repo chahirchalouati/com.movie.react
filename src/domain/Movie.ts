@@ -18,7 +18,7 @@ export interface Pageable {
 }
 
 export interface Page<T> {
-    content?: Array<T>
+    content: Array<T>
     empty?: boolean,
     first?: boolean,
     last?: boolean,
