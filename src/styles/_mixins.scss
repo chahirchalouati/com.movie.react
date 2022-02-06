@@ -6,3 +6,48 @@
   gap: $gap;
   @content
 }
+
+$directions: top, left, right, bottom, all;
+
+
+.flex-column-center {
+  @include flex(column) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.flex-row-center {
+  @include flex(row) {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.flex-row-align-center {
+  @include flex(row) {
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.flex-row-justify-center {
+  @include flex(row) {
+    justify-content: center;
+    align-items: flex-start;
+  }
+}
+
+.flex-column-align-center {
+  @include flex(column) {
+    justify-content: flex-start;
+    align-items: center;
+  }
+}
+
+.flex-column-justify-center {
+  @include flex(column) {
+    justify-content: center;
+    align-items: flex-start;
+  }
+}

@@ -1,20 +1,9 @@
-export interface Movie {
-    id?: string;
-    title?: string;
-    description?: string;
-    code?: string;
-    thumbnails?: string;
-    downloadUrl?: string;
-    actors?: any[];
-    likes?: any[];
-    comments?: any[];
-    createdAt?: String;
-}
+
 
 export interface Pageable {
-    number?: string;
-    size?: string;
-    sort?: string [];
+    page?: number;
+    size?: number;
+    sort?: string;
 }
 
 export interface Page<T> {

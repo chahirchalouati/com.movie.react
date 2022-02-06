@@ -1,44 +1,28 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Container from "./components/layouts/Container";
 import SideBar from "./components/Navs/SideBar";
-import NavBar from "./components/Navs/NavBar";
-import {Movie, Page} from "./domain/Movie";
-import MovieList from "./components/Movie/MovieList";
-import {httpClient} from "./configs/HttpConfig";
-import Banner from "./domain/Banner";
-import BannerList from "./components/Movie/BannerList";
+import {Provider} from "react-redux";
+import {store} from "./redux/config/config";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import Home from "./pages/Home";
+import MoviePlayer from "./pages/MoviePlayer";
 
 
 function App() {
-    const [movies, setMovies] = useState<Page<Movie>>({content: []});
-    const [banners, setBanners] = useState<Array<Banner>>([]);
-    const getMovies = async () => {
-        try {
-            const {data: movies} = await httpClient.get<Page<Movie>>("/movies?sort=createdAt,DESC");
-            setMovies(() => movies);
-            const {data: banners} = await httpClient.get<Array<Banner>>("/banners?limit=10");
-            setBanners(() => banners);
+    return (<Provider store={store}>
+            <Container className={"container__flex__row"}>
+                <SideBar/>
 
-        } catch (e) {
-            console.log(e)
-        }
-    }
+                <BrowserRouter>
+                    <Routes>
+                        <Route path={'/'} element={<Home/>}/>
+                        <Route path={'/watch/:name'} element={<MoviePlayer/>}/>
+                    </Routes>
+                </BrowserRouter>
 
-    useEffect(() => {
-        getMovies();
 
-    }, []);
-
-    return (
-        <Container className={"container__flex__row"}>
-            <SideBar/>
-            <div className={"container__flex_column width-full"} style={{overflow: 'hidden'}}>
-                <NavBar/>
-                <BannerList banners={banners}/>
-                <MovieList movies={movies.content}/>
-            </div>
-
-        </Container>
+            </Container>
+        </Provider>
     );
 }
 

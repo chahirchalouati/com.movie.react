@@ -1,0 +1,11 @@
+.banner-list{
+  @include flex(row);
+  justify-content: center;
+  align-items: center;
+ & .banner-card{
+    img{
+      object-position: center;
+      object-fit: cover;
+    }
+ }
+}

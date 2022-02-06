@@ -1,11 +1,11 @@
 import {SIDE_BAR_BODY_ROUTES, SIDE_BAR_FOOTER_ROUTES,} from "../../configs/porps/RoutesProps";
 import {IMAGE_URL_AVATAR} from "../../mock/Mock";
 import SideBarBox from "./SideBarBox";
+import {useState} from "react";
 
 export type SideBarProps = {};
 
 const SideBar = ({}: SideBarProps) => {
-
     const doSomeThing = () => {
     };
     const handleRouteChange = (to: string) => {
